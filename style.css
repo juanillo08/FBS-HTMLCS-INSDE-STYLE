@@ -164,6 +164,62 @@
     color: var(--clr-primary);
   }
 
+  /* Toggle Menu */
+    .toggle__menu{
+        display: none;
+    }
+    .toggle__menu span{
+        color: var(--clr-dark);
+        width: 3rem;
+        height: 0.3rem;
+        border: 2px solid var(--clr-dark);
+        border-radius: 1rem;
+    }
+    /* Mobile Responsive for Header */
+    @media screen and (max-width: 520px) {
+        .toggle__menu{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .header__nav{
+          position: fixed;
+          height: 100vh;
+          width: 100%;
+          background-color: var(--clr-tertiary);
+          top: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          right: -100%;
+          z-index: 9999;
+          transform: translateY(-18rem);
+          margin-top: 28rem;
+          transition: .5s ease;
+        }
+        .header__nav.open{
+            right: 0;
+            transition: .5s ease;
+        }
+        .header img{
+            width: 12rem;
+
+        }
+        .toggle__menu.open span:nth-child(1){
+            transform: translate(0, 10px) rotate(225deg);
+            transition: 0.5s ease;
+        }   
+        .toggle__menu.open span:nth-child(2){
+            opacity: 0;
+        }
+        .toggle__menu.open span:nth-child(3){
+            transform: translate(0, -8px) rotate(-225deg);
+            transition: 0.5s ease;
+        }
+        
+    }
+
   /* TOP DETAILS */
   .top{
     background-color: var(--clr-Secondary);
@@ -191,6 +247,7 @@
 }
 .homeBanner__wrapper{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 .homeBanner__text{
@@ -235,12 +292,30 @@
 .homeBanner__img{
     display: flex;
     gap: 2rem;
+    padding: 5rem 0;
 }
 .homeBanner__img img:last-child{
     position: relative;
-    top: 4rem;
-    
+    top: 4rem; 
+
+   
 }
+ /* Mobile Responsive for Home Banner */
+ @media screen and (max-width: 520px) {
+    .homeBanner__wrapper{
+        flex-direction: column;
+}
+.homeBanner__text ul li:nth-child(3)::before{
+    width: 1rem;
+}
+.homeBanner__text{
+    margin-bottom: 5rem;
+}
+.homeBanner__img img{
+    display: none;
+}
+}
+
 /* ASSET */
 .btn{
     background-color: transparent;
@@ -299,6 +374,13 @@
     padding: 2rem;
 }
 
+ /* Mobile Responsive for Home Banner */
+ @media screen and (max-width: 520px){
+    .homeAbout__title::before, .homeAbout__img img{
+        display: none;
+    }
+ }
+
 /* CATALOG */
 .homeCatalog{
     padding: 5rem 0;
@@ -346,21 +428,14 @@
 .homeCatalog__card--details p {
     margin-bottom: 1rem;
 }
-.btn.bg--tertiary{
-    background-color: var(--clr-tertiary);
-    color: var(--clr-dark);
-    border: 1px solid var();
-    font-weight: 700;
-}
-.btn.bg--tertiary:hover{
-    background-color: var(--clr-dark);
-    color: var(--clr-tertiary);
-}
-.nobg--primary {
-    color: var(--clr-primary);
-}
-.nobg--primary:hover{
-    color: var(--clr-dark);
+/* Mobile Responsive for Home Catalog */
+@media screen and (max-width: 520px){
+    .homeCatalog__title::after{
+        display: none;
+    }
+    .homeCatalog__wrapper{
+        gap: 3rem;
+    }
 }
 
 
@@ -379,6 +454,12 @@
 .calltoAction__text p {
     margin-bottom: 2rem;
 }
+/* Mobile Responsive for Home CTA */
+@media screen and (max-width: 520px){
+    .homeCatalog__wrapper h2{
+        font-size: 2.5rem;
+    }
+}
 
 /* FOOTER */
 .footer{
@@ -388,6 +469,7 @@
 }
 .footer__wrapper{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -398,4 +480,290 @@
 }
 .footer__social li a{
     color: var(--clr-light);
+}
+/* Mobile Responsive for Home Footer */
+@media screen and (max-width: 520px){
+    .footer__wrapper{
+        flex-direction: column;
+    }
+}
+
+
+/* ABOUT */
+
+.About{
+    padding-top: 13rem;
+}
+.About__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0;
+}
+
+.About__text{
+    max-width: 80rem;
+    margin-top: 20rem;
+}
+h1{
+    font-size: 5rem;  
+    letter-spacing: 2rem;
+    font-weight: 700;
+}
+.About__text p{
+    margin-top: 2rem;
+   
+    
+}
+h4::before{
+    display: inline-block;
+    position: relative;
+    content: " ";
+    background-color: var(--clr-dark);
+    width: 37rem;
+    height: 0.2rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    
+}
+
+.About__icons{
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    padding-top: 3rem;
+    
+}
+.About__icons a{
+    color: var(--clr-dark);
+}
+/* Mobile Responsive for About  in Bannner*/
+@media screen and (max-width: 520px){
+    .About__wrapper{
+        display:inline;
+     
+    }
+    .About h4{
+        text-align: center;
+    }
+    .About__text{
+        margin: 1rem;
+        text-align: center;
+    }
+    .About__text p{
+        text-align: left;
+    }
+}
+
+
+
+/* ABOUT CATALOG */
+.aboutCatalog{
+    padding: 5rem 0;
+    background-color: var(--clr-dark);
+}
+.aboutCatalog__title{
+    color: var(--clr-primary);
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+.aboutCatalog__title::after{
+    display: inline-block;
+    position: relative;
+    content: " ";
+    background-color: var(--clr-primary);
+    width: 1rem;
+    height: 0.2rem;
+    bottom: 0.5rem;
+    left:  1rem;
+}
+.aboutCatalog h2{
+    color: var(--clr-primary); 
+    padding-left: 4.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+
+}
+.aboutp{
+    color: var(--clr-light);
+    gap:1rem;
+    padding-left: 3.5rem;
+    margin: 1rem;
+  
+}
+.aboutCatalog__wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem,1fr));
+    justify-items: center;
+    gap: 4rem;
+}
+
+.aboutCatalog__card{
+    background-color: var(--clr-light);
+    max-width:  35rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.aboutCatalog__card img{
+    width: 35rem;
+}
+.aboutCatalog__card--details{
+    padding: 2rem;
+}
+.aboutCatalog__card--details h3{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-Secondary);
+    margin-bottom: 1rem;    
+}
+.aboutCatalog__card--details p {
+    margin-bottom: 1rem;
+}
+/* Mobile Responsive for About  in Catalog*/
+@media screen and (max-width: 520px){
+    .aboutCatalog h2{
+        padding-left: 3.5rem;
+    }
+    .aboutp{
+        margin-left: 0rem;
+    }
+}
+
+
+/* Catalog Banner */
+.catalogBanner{
+    
+    background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)) ,url(/catalog-banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.catalogBanner__wrapper{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    text-align: center;
+    height: 100vh;
+    
+}
+.catalogBanner h1{
+    font-size: 7rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+
+}
+.catalogBanner p{
+    font-size: 3rem;
+}
+
+
+.package{
+    padding-top: 2rem;
+    background-color: var(--clr-light);
+}
+.package__title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    gap: 5rem;
+}
+.package__card1{
+    display: flex;    
+    text-align: justify;
+    padding-left: 5rem;
+}
+.package__name{
+    max-width: 60rem;
+    padding-left: 5rem;
+    padding-top: 15rem;
+}
+.package__name h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+}
+.package__card1 img{
+    padding-top: 8rem;
+    margin-left: 30rem;
+    padding: 5rem 0;
+ 
+}
+.package__card1:nth-child(even)::before{
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    background-color: var(--clr-Secondary);
+    width: 48%;
+    height: 37rem;
+    right: 0;
+    z-index: -9999999;
+}
+
+
+/* Catalog Banner2 */
+.package__card2{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 40rem;
+    padding-top: 5rem;
+}
+.package__card2 h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+}
+.package__card2 p{
+    text-align: justify;
+}
+.package__name2{
+    max-width: 55rem;
+    padding-top: 6rem;
+    margin-right: 5rem;
+}
+/* ABOUT CALL TO ACTION */
+.aboutcalltoAction{
+    background-color: var(--clr-primary);
+    padding: 5rem 0;
+}
+.aboutcalltoAction__title{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.aboutcalltoAction__text{
+    text-align: center;
+}
+.aboutcalltoAction__text p {
+    margin-bottom: 2rem;
+}
+/* Mobile Responsive for About  in CTA*/
+@media screen and (max-width: 520px){
+    .aboutcalltoAction__title{
+        font-size: 2.5rem;
+    }
+}
+
+
+/* ABOUT FOOTER */
+.Aboutfooter{
+    padding: 3rem;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}
+.aboutfooter__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.aboutfooter__social{
+    display: flex;
+    gap: 1.5rem;
+    
+}
+.aboutfooter__social li a{
+    color: var(--clr-light);
+}
+/* Mobile Responsive for About Footer */
+@media screen and (max-width: 520px){
+    .aboutfooter__wrapper{
+        flex-direction: column;
+    }
 }
